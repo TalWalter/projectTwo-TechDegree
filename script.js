@@ -47,14 +47,18 @@ const appendPageLinks = (list) => {
 // Select all of your 'links' (so your 'a' elements) this will help you when calling your eventListner.
   const aTags = document.querySelectorAll('a');
 // Add an event listener to each a tag, use a for loop inorder to go through all of them 
-    
-  aTags[i].addEventListener('click', (e) => {
+  for (let i = 0; i < aTags.length; i ++) {  
+    aTags[i].addEventListener('click', (e) => {
+// REMOVE active class      
       for (let i = 0; i < aTags.length; i ++) {
-        aTags[i].classList.remove('active');
-        showPage(studentList, i + 1);
-        e.target.className = 'active';
-    }  
-  }); 
+        e.target.classList.remove('active');
+      }
+      showPage(studentList, i + 1);
+// ADD active class
+      e.target.className = 'active';
+    }); 
+    
+  }
 }
 
 
