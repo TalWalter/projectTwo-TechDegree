@@ -55,7 +55,7 @@ const appendPageLinks = (list) => {
       }
       showPage(studentList, i + 1);
 // ADD active class
-      e.target.className = 'active';
+      e.target.className += 'active';
     }); 
     
   }
