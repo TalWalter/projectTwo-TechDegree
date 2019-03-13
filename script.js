@@ -51,7 +51,7 @@ const appendPageLinks = (list) => {
     aTags[i].addEventListener('click', (e) => {
 // REMOVE active class      
       for (let i = 0; i < aTags.length; i ++) {
-        e.target.classList.remove('active');
+        aTags[i].classList.remove('active');
       }
       showPage(studentList, i + 1);
 // ADD active class
