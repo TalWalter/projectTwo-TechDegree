@@ -24,7 +24,7 @@ const showPage = (list, page) => {
 
 
 const appendPageLinks = (list) => {
-// Determining how pages are needed 
+// Determining how many pages are needed 
   const totalPages = Math.ceil(list.length / 10);
 // Create a div that will contain your pagination links
   const newDiv = document.createElement('div');
@@ -47,17 +47,14 @@ const appendPageLinks = (list) => {
 // Select all of your 'links' (so your 'a' elements) this will help you when calling your eventListner.
   const aTags = document.querySelectorAll('a');
 // Add an event listener to each a tag, use a for loop inorder to go through all of them 
-  for (let i = 0; i < aTags.length; i ++) {
-    aTags[i].addEventListener('click', (e) => {
-    showPage(studentList, i+1);
-    e.target.className = 'active';
-// remove active class    
-  if (e.target.className === 'active') {
-    aTags[i].classList.remove('active');
-    }
-
+    
+  aTags[i].addEventListener('click', (e) => {
+      for (let i = 0; i < aTags.length; i ++) {
+        aTags[i].classList.remove('active');
+        showPage(studentList, i + 1);
+        e.target.className = 'active';
+    }  
   }); 
-  }
 }
 
 
